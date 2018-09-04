@@ -1,0 +1,11 @@
+/**index.wxss**/
+.banner image{
+  width: 750rpx;
+  height: 240rpx;
+}
+.seller-detail{
+  position: absolute;
+  top: 0;
+  width: 750rpx;
+  height: 240rpx;
+}

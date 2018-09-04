@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="banner">
+    <image src='../images/banner.png' mode='aspectFill'></image>
+    <view class='seller-detail'>
+      <text></text>
+      <view>分享</view>
+      <image src=''></image>
+    </view>
+   
+  </view>
+  <view class="intro">
+
+  </view>
+  <view class='auction'>
+  
+  </view>
+  <view></view>
+</view>

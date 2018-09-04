@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/ucenter/ucenter"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "拍卖",
+        "iconPath": "pages/images/auction.png",
+        "selectedIconPath": "pages/images/auction-click.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我",
+        "iconPath": "pages/images/ucenter.png",
+        "selectedIconPath": "pages/images/ucenter-select.png"
+      }
+    ]
+  }
+}
