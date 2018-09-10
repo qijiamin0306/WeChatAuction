@@ -1,8 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/ucenter/ucenter"
+    "pages/login/index",
+    "pages/auction/index",
+    "pages/orderDetail/index",
+    "pages/order/index",
+    "pages/help/index",
+    "pages/ucenter/index",
+    "pages/fieldDetail/index",
+    "pages/address/index",
+    "pages/addAddress/index",
+    "pages/editAddress/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,19 +19,23 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "color": "#b2b2b2",
+    "selectedColor": "#353535",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "拍卖",
-        "iconPath": "pages/images/auction.png",
-        "selectedIconPath": "pages/images/auction-click.png"
+        "iconPath": "images/auction.png",
+        "selectedIconPath": "images/auction-click.png"
       },
       {
-        "pagePath": "pages/index/index",
-        "text": "我",
-        "iconPath": "pages/images/ucenter.png",
-        "selectedIconPath": "pages/images/ucenter-select.png"
+        "pagePath": "pages/ucenter/index",
+        "text": "我的",
+        "iconPath": "images/ucenter.png",
+        "selectedIconPath": "images/ucenter-select.png"
       }
-    ]
+    ],
+    "position": "bottom"
   }
 }

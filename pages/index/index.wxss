@@ -1,11 +1,180 @@
 /**index.wxss**/
-.banner image{
+
+@import "../../wxParse/wxParse.wxss";
+
+
+@font-face {
+  font-family: 'iconfont';  /* project id 665385 */
+  src: url('//at.alicdn.com/t/font_665385_0mwu41nxiswtgldi.eot');
+  src: url('//at.alicdn.com/t/font_665385_0mwu41nxiswtgldi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_665385_0mwu41nxiswtgldi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_665385_0mwu41nxiswtgldi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_665385_0mwu41nxiswtgldi.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouji:before { content: "\e60f"; }
+
+.icon-wode:before { content: "\e646"; }
+
+.box{
+  /* background: #f2f2f2; */
+  height: 100%;
+}
+
+.slide-image {
+  width: 750rpx;
+  height: 300rpx;
+}
+
+
+.flex-wrp{
+  margin: 50rpx 0 32rpx 0;
+  color:#353535;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.flex-item{
+  display: inline-block;
+
+}
+.flex-item view{
+  width: 78rpx;
+  height:36rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 400;
+}
+.flex-item:last-child{
+  margin-left: 71rpx;
+}
+.active{ 
+  padding-bottom: 4rpx; 
+  font-family:PingFangSC-Semibold;
+}
+.active view{
+  font-size:34rpx;
+  font-weight:600;
+  color:rgba(53,53,53,1);
+  width: 102rpx;
+  height: 48rpx;
+}
+.hr{
+  width: 60rpx !important;
+  border: 3rpx solid #353535;
+  margin: auto;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin-top: 4rpx;
+}
+.white{
+  border: 3rpx solid #fff;
+}
+
+/* list */
+.item{
+  position:relative;
+  background: #fff;
+  margin: 0 40rpx;
+  margin-bottom:32rpx;
+  border-bottom: 1rpx solid #b2b2b2;
+  font-size: 32rpx;
+}
+
+.item image {
+  width:100%;
+  height:395rpx;
+  border-radius: 10pt;
+}
+
+.status{
+  position:absolute;
+  top: 0;
+  left: 0rpx;
+  border-top-left-radius: 10rpx;
+  padding:10rpx 20rpx;
+  color:#fff;
+  font-size: 26rpx;
+}
+/* 商家定制 */
+.banner{
+  width: 750rpx;
+  height: 240rpx;
+}
+.banner .bgImg{
+  position: absolute;
+  top: 0; 
   width: 750rpx;
   height: 240rpx;
 }
 .seller-detail{
   position: absolute;
-  top: 0;
+  top: 0; 
+  float: left;
   width: 750rpx;
   height: 240rpx;
+}
+.seller-name{
+  color:#fff;
+  font-size: 36rpx;
+  margin-top: 58rpx;
+  margin-left: 40rpx;
+}
+.seller-share{
+  width:96rpx;
+  height:48rpx;
+  font-size:26rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(196,161,129,1);
+  line-height:48rpx;
+  border: 2rpx solid #C4A181;
+  border-radius: 25rpx;
+  text-align: center;
+  margin-top: 40rpx;
+  margin-left: 46rpx;  
+  background: none;
+  padding: 0;
+}
+
+.sellerImg{
+  height: 144rpx;
+  width: 144rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 46rpx;
+  top: 48rpx;
+}
+.intro{
+  width: 670rpx;
+  margin: 0 40rpx 0 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom:1px solid rgba(178,178,178,1);
+  font-size:26rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:bold;
+  float: left;
+}
+.wxParse{
+  color:#353535;
+  line-height: 100rpx;
+  margin: 0;
+}
+.wxParse-p{
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.container{
+  padding: 0 40rpx 0 40rpx;
+  width: 100%;
 }

@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<scroll-view scroll-y style='height:100%' bindscrolltolower="lower" scroll-top="{{scrollTop}}">
+  <view class='top'>
+  <view>
+    <image wx:if="{{detailInfo.img}}" src='{{imgUrl+detailInfo.img}}' mode='aspectFill'></image> 
+  </view>
+     
+
+    <view class='field-info'>
+      <view class='name' style="padding: 0 30rpx">{{detailInfo.name}}</view>
+      <view class='info' style="padding: 0 30rpx">
+        <view class='time' wx:if="{{detailInfo.status === '1'}}">开始时间:
+          <text wx:if="{{detailInfo.message !== ''}}">{{detailInfo.message}}</text>
+          <text wx:else>{{detailInfo.start_time}}</text>
+        </view>
+        <view class='time' wx:if="{{detailInfo.status === '2'}}">结束时间:
+          <text wx:if="{{detailInfo.message !== ''}}">{{detailInfo.message}}</text>
+          <text wx:else>{{detailInfo.end_time}}</text>
+        </view>
+        <text class='wei'>围观：{{detailInfo.amounts}}</text>
+      </view>
+    </view>
+
+  </view>
+  <!-- list -->
+  <view class='list'>
+    <block wx:for="{{list}}" wx:key="index" wx:for-item="item">
+      <navigator class='item' url="{{'/pages/auction/index?id='+item.id}}">
+        <view>
+          <image src='{{imgUrl + item.img}}' mode='aspectFill'></image>
+        </view>
+        <view class='item-info'>
+          <text class='name'>{{item.goods_name}}</text>
+          <view class='price'>当前价:￥{{item.now_price}}</view>
+          <view class='bind'>出价{{item.bid_number}}次</view>
+          <view class='status-box'>
+            <view>
+              围观{{item.onlook}}
+            </view>
+            <view class='status yuStatus' wx:if="{{item.goods_status === '1'}}">预展中</view>
+            <view class='status hotStatus' wx:if="{{item.goods_status === '2'}}">拍卖中</view>
+            <view class='status endStatus' wx:if="{{item.goods_status === '3'}}">已拍出</view>
+            <view class='status endStatus' wx:if="{{item.goods_status === '4'}}">已拍出</view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+    <view wx:if="{{isLoading}}" class='loading'>{{loadingText}}</view>
+  </view>
+
+</scroll-view>

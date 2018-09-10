@@ -1,0 +1,70 @@
+/**index.wxss**/
+.top{
+  background: #fff;
+}
+/* .info{
+  display: flex;
+  justify-content: space-between;
+  height:100rpx;
+  line-height: 100rpx;
+  padding:0 16rpx;
+  font-size:24rpx;
+} */
+.info .head-img{
+  width:100rpx;
+  height:100rpx;
+  border-radius:50%;
+}
+image{
+  width:100%;
+  height: 450rpx;
+  vertical-align: middle;
+}
+
+/* list */
+.list{
+  padding:32rpx;
+  background:#f2f2f2;
+}
+.list .item {
+  display: flex;
+  align-items: center;
+  background:#fff;
+  margin-bottom:32rpx;
+  font-size:32rpx;
+}
+.item image{
+  width:300rpx;
+  height:300rpx;
+}
+.item-info{
+  flex:1;
+  margin-left:16rpx;
+  padding-top:32rpx;
+}
+.item-info .name{
+  font-size: 30rpx;
+  padding: 16rpx 0 ;
+}
+.item-info .price{
+  padding: 16rpx 0;
+}
+.item-info .bind{
+  padding: 10rpx 0;
+  font-size: 28rpx;
+}
+.item-info .status-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  padding-bottom: 16rpx;
+  font-size: 26rpx;
+}
+.status{
+  border-top-left-radius: 25rpx;
+  border-bottom-left-radius: 25rpx;
+  padding:10rpx;
+  color:#fff;
+  font-size: 26rpx;
+}

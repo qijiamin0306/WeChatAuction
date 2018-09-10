@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container" bindtap='bind'>
+  <view class='userInfo'>
+    <view class='head-box'>
+      <image class='head-img' wx:if="{{isUser}}" src='{{userInfo.avatarUrl}}'></image>
+      <image class='head-img' wx:else src='../../images/default.png'></image>
+    </view>
+    <view class='info' >
+      <view wx:if="{{isUser}}" class='name'>{{userInfo.nickName}}</view>
+      <button wx:else class='auth' open-type='getUserInfo' bindgetuserinfo='get'>登录</button>
+      <view class='mobile bind-mobile' wx:if="{{!isMobile}}">绑定手机号</view>
+      <view class='mobile' wx:if="{{isMobile}}">{{mobile}}</view> 
+    </view>
+  </view>
+  
+  <view class='list'>
+  <navigator class='item' url="/pages/order/index">
+    <view class='item'>
+    
+      <view class='left'>
+        <image class='item-icon1' src='../../images/order-list.png'></image>
+        <text>订单中心</text>
+      </view>
+      <text class='right'>></text>
+    </view>
+  </navigator>
+    <navigator class='item' url="/pages/help/index">
+    <view class='item'>
+    
+      <view class='left'>
+        <image class='item-icon2' src='../../images/help.png'></image>
+        <text>帮助中心</text>
+      </view>
+      <text class='right'>></text>
+    </view>
+    </navigator>
+  </view>
+</view>

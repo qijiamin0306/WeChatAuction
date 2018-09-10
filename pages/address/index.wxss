@@ -1,0 +1,75 @@
+/* pages/address/index.wxss */
+.address-list{
+  border: 1px solid #000;
+}
+.address-list button{
+  display: inline-block;
+  width: 100rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+}
+.add{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff
+}
+input{
+  border: 1px solid #000;
+  height: 60rpx;
+}
+.address{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1rpx solid #000;
+}
+.province{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 40
+}
+.city{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 50
+}
+.area{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 60
+}
+.select{
+  display: block;
+  height: 60rpx;
+  border: 1px solid #000;
+}
+.add-address{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  height: 100rpx;
+  background: #000;
+  color: #fff;
+  font-size: 32rpx;
+  line-height: 100rpx;
+}

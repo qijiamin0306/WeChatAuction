@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<scroll-view scroll-y class='container' bindscrolltolower="lower"  scroll-top="{{scrollTop}}">
+  <view class='menu'>
+
+    <text wx:for="{{statusList}}" data-id="{{item.id}}" class="menu-item {{status==item.id ? 'active' : ''}}" wx:key="unique" wx:for-item="item" bindtap="changeStatus">{{item.name}}</text>
+  </view>
+
+  <view style='padding-top: 100rpx'>
+    <!-- list -->
+    <view wx:if="{{isNull}}">
+      <image class='kong' src='../../images/kong.png'></image>
+    </view>
+    <view class='order-list' wx:else>
+      <block wx:for="{{orderList}}" wx:key="index" wx:for-item="item">
+        <navigator class='item'  url="{{'/pages/orderDetail/index?id='+item.order_id}}">
+        <!-- wx:if="{{item.status === '1' || item.status === '2' || item.status === '5'}}" -->
+          <view class='order-item'  wx:if="{{item.status === '1' || item.status === '2' || item.status === '5' || item.status === '6' || item.status === '7' || item.status === '8'}}">
+            <!-- title -->
+            <view class='title'>
+              <view>
+                <text>{{item.who_name}}</text>
+              </view>
+              <!-- 订单状态 -->
+              <view class='status' wx:if="{{item.status === '1'}}">待支付</view>
+              <view class='status' wx:if="{{item.status === '2' && item.distribution_status === '0'}}">待发货</view>
+              <view class='status' wx:if="{{item.status === '2' && item.distribution_status === '1'}}">待收货</view>
+              <view class='status' wx:if="{{item.status === '3' }}">已取消</view>
+              <view class='status' wx:if="{{item.status === '4'}}">订单关闭</view>
+              <view class='status' wx:if="{{item.status === '5' }}">已完成</view>
+              <view class='status' wx:if="{{item.status === '6' }}">已退款</view>
+              <view class='status' wx:if="{{item.status === '7' }}">部分退款</view>
+              <view class='status' wx:if="{{item.status === '8' }}">申请退款中</view>
+            </view>
+
+            <!-- content -->
+            <block wx:for="{{item.goods_info}}" wx:key="index" wx:for-item="goodsItem">
+              <view class='order-content'>
+                <image src='{{imgUrl+goodsItem.img}}'></image>
+                <view class='info'>
+                  <view class='name'>{{goodsItem.goods_name}}</view>
+                  <view class='goods-info'>
+                    <text>￥{{goodsItem.goods_price}}</text>
+                    <text>*{{goodsItem.goods_nums}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+
+            <!-- orderInfo -->
+            <view class='order-info'>
+              <text>共{{item.goods_total}}件商品</text>
+              <text>合计：</text>
+              <text>￥{{item.order_amount}}</text>
+              <text>(含运费{{item.payable_freight}})</text>
+            </view>
+
+          </view>
+        </navigator>
+      </block>
+      <view wx:if="{{isLoading}}" class='loading'>{{loadingText}}</view>
+    </view>
+  </view>
+
+</scroll-view>

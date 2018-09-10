@@ -1,9 +1,101 @@
 /**app.wxss**/
+page{
+  height:100%;
+  background: #fff;
+  font-size:28rpx;
+}
 .container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
 } 
+
+
+.loading {
+  padding: 8rpx 0;
+  text-align: center;
+}
+.kong {
+  display: block;
+  width:400rpx;
+  height: 600rpx;
+  margin: 32rpx auto 0;
+}
+
+/* 状态 */
+
+.hotStatus{
+  background:#A72828;
+}
+.yuStatus{
+  background: #028678;
+}
+.endStatus {
+  background: #757575;
+}
+
+/* 场次信息 */
+.field-info {
+  padding: 0 10rpx;
+}
+.field-info .name {
+  margin-top: 20rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+.field-info .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  color: #353535;
+}
+.info .time{
+  font-size: 12pt;
+}
+.info .time text {
+  margin-left: 10rpx;
+}
+.info .wei{
+  font-size: 22rpx;
+  color: #b2b2b2;
+}
+
+/* orderList */
+.order-item{
+  background: #fff;
+  margin-bottom: 16rpx;
+}
+.order-item .title{
+  display: flex;
+  justify-content: space-between;
+  padding: 16rpx;
+  font-size: 32rpx;
+}
+
+.order-content{
+  display: flex;
+  align-items: center;
+  background: #F2F2F2;
+  padding: .32rem;
+}
+.order-content image{
+  width: 160rpx;
+  height: 160rpx;
+}
+.order-content .info{
+  width: 550rpx;
+  padding-left: 32rpx;
+}
+.order-content .info .name {
+  font-weight: bold;
+  padding: 16rpx 0;
+}
+.goods-info{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 16rpx;
+}

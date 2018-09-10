@@ -1,0 +1,94 @@
+.box{
+  background: #f2f2f2;
+  height: 100%;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200rpx;
+  background: #fff;
+  margin-bottom: 16rpx;
+  padding: 0 46rpx;
+  font-size: 26rpx;
+}
+
+.address .address-img {
+  width: 30rpx;
+  height: 46rpx;
+}
+
+.address .right {
+  color: #b2b2b2;
+}
+
+.address-content {
+  width: 550rpx;
+}
+
+.address-info {
+  color: #353535;
+  font-size: 24rpx;
+}
+.address-info .name {
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.address-info .info-item {
+  padding-bottom: 12rpx;
+}
+
+.address .title {
+  padding: 10rpx 0;
+  font-size: 30rpx;
+}
+.address .info {
+  padding-left: 32rpx;
+  font-size: 26rpx;
+}
+
+.address-btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 40rpx;
+  background: #f2f2f2;
+  text-align: center;
+}
+
+/* order */
+
+.order-info{
+  background: #fff;
+  margin-bottom: 16rpx;
+  padding: 32rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #1c1c1c;
+}
+.order-info view {
+  padding: 10rpx 0;
+}
+.order-detail {
+  background: #fff;
+  padding: 32rpx;
+  font-size: 26rpx;
+  color: #1c1c1c;
+}
+.order-detail view {
+  padding: 10rpx 0;
+}
+
+.pay {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #000;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+}

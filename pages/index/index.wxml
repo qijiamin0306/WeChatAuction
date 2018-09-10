@@ -1,19 +1,68 @@
 <!--index.wxml-->
-<view class="container">
+<import src="../../wxParse/wxParse.wxml"/> 
+
+<scroll-view class='box' scroll-y bindscrolltolower="lower" enable-back-to-top>
   <view class="banner">
-    <image src='../images/banner.png' mode='aspectFill'></image>
+    <image src='../../images/banner.png' mode='aspectFill' class='bgImg'></image>
     <view class='seller-detail'>
-      <text></text>
-      <view>分享</view>
-      <image src=''></image>
+      <view class='seller-name'>{{sellerName}}</view>
+      <button class='seller-share' open-type="share">分享</button>
+      <image src="{{imgUrl+sellerImg}}" class='sellerImg'></image>
     </view>
-   
   </view>
   <view class="intro">
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+    </view>
+  </view>
+  <view class="container">
+    <view class="flex-wrp">
+      <block wx:for="{{tabList}}" wx:key="index" wx:for-item="item">
+        <view class="flex-item" data-id="{{item.id}}" class="{{status == item.id ? 'active flex-item' : 'flex-item'}}" bindtap="changeStatus">
+          <view >{{item.name}}</view>
+          <view class="{{status == item.id ? 'black hr' : 'white hr'}}" ></view>
+        </view>
+      </block>
+    </view>
+  </view>
 
+  <!-- 列表 -->
+  <view wx:if="{{isNull}}">
+    <image class='kong' src='../../images/kong.png'></image>
   </view>
-  <view class='auction'>
-  
+  <view wx:else>
+    <block wx:for="{{list}}" wx:key="index" wx:for-item="item">
+      <!-- <navigator url='/pages/auclist/index'> -->
+      <view class='item' data-id='{{item.id}}' bindtap="jump">
+        <image src='{{imgUrl+item.img}}' mode='aspectFill'></image>
+        <view class='field-info'>
+          <view class='name'>{{item.name}}</view>
+          <view class='info'>
+
+            <view class='time' wx:if="{{status === 1}}">开始时间:
+              <text wx:if="{{item.message !== ''}}">{{item.message}}</text>
+              <text wx:else>{{item.star_time}}</text>
+            </view>
+            <view class='time' wx:else>结束时间:
+              <text wx:if="{{item.message !== ''}}">{{item.message}}</text>
+              <text wx:else>{{item.end_time}}</text>
+            </view>
+
+            <text class='wei'>围观：{{item.amounts}}</text>
+          </view>
+        </view>
+        <!-- <view>
+          <view class='userInfo'>
+            <image class='head-img' src="{{imgUrl+item.head_img}}"></image>
+            <text>{{item.who_name}}</text>
+          </view>
+        </view> -->
+        <!-- <text class='status yuStatus' wx:if="{{item.status == 2 || item.status == 5}}">拍卖中</text> -->
+        <text class='status hotStatus' wx:if="{{item.status == 2 || item.status == 5}}">拍卖中</text>
+        <view class='status yuStatus' wx:if="{{item.status == 1}}">预展中</view>
+      </view>
+      <!-- </navigator> -->
+    </block>
+    <view wx:if="{{isLoading}}" class='loading'>{{loadingText}}</view>
   </view>
-  <view></view>
-</view>
+</scroll-view>

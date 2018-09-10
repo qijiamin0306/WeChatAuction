@@ -1,0 +1,31 @@
+/* pages/editAddress/index.wxss */
+.province{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 40
+}
+.city{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 50
+}
+.area{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: auto;
+  z-index: 60
+}

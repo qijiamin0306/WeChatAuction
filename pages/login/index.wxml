@@ -1,0 +1,21 @@
+<!-- 绑定手机号 -->
+<view>
+  <view class='logo'>
+    <image src='../../images/logo.png'></image>
+    <view class='name'>爱微藏</view>
+  </view>
+  <view class='form'>
+    <view class='label-content'>
+      <input class='mobile' placeholder="输入手机号" auto-focus bindinput="bindMobile" />
+    </view>
+    <view class='label-content'>
+      <input class='code' placeholder="输入验证码" bindinput="bindCode" />
+      <text class='get-code' wx:if="{{!isCode}}" bindtap='getCode'>获取验证码</text>
+      <text class='get-code' wx:else bindtap='getCode'>{{num}}后重新发送</text>
+    </view>
+    
+    
+    
+    <button  class="btn {{isBtn ? 'active' : ''}}" bindtap='bind'>确定</button>
+  </view>
+</view>

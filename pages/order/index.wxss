@@ -1,0 +1,34 @@
+.container{
+  height: 100%;
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #b2b2b2;
+}
+.menu-item {
+  /* width: 187.5rpx; */
+  height: 90rpx;
+  line-height: 90rpx;
+  
+  text-align: center;
+  font-size: 26rpx;
+}
+.menu .active {
+  border-bottom: 2px solid #353535;
+  font-weight: bold;
+}
+
+
+
+.order-info{
+  padding: 32rpx 16rpx;
+  text-align: right;
+}

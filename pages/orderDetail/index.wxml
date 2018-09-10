@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<view class='box'>
+  <!-- address -->
+  <!-- 选择地址操作按钮 -->
+  <navigator class='address' url='../../pages/address/index?addressInfoId={{addressInfo.id}}'>
+    <image class='address-img' src="../../images/address.png"></image>
+
+    <!-- address-content -->
+    <view class='address-content'>
+      <!-- add -->
+      <!-- 如果该订单未付款并且没有选择地址 -->
+      <view class='add-address' wx:if="{{!isAddress}}">新增收货地址</view>
+      <!-- address-info -->
+      <!-- 如果该订单已付款或者已选择地址 -->
+      <view class='address-info' wx:if="{{!isDefault}}">
+        <!-- 使用选择的地址信息 -->
+        <view wx:if="{{!isOrderAddress}}">
+          <view class='name info-item'>
+            <text>收货人：</text>
+            <text>{{addressInfo.accept_name}}</text>
+          </view>
+          <view class='info-item'>
+            <text>收货地址：</text>
+            <text>{{addressInfo.province_text}}{{addressInfo.city_text}}{{addressInfo.area_text}}{{addressInfo.address}}</text>
+          </view>
+          <view class='info-item'>
+            <text>联系电话：</text>
+            <text>{{addressInfo.accept_mobile}}</text>
+          </view>
+        </view>
+
+        <!-- 使用订单的地址信息 -->
+        <view wx:else>
+          <view class='name info-item'>
+            <text>收货人：</text>
+            <text>{{orderDetailInfo.accept_name}}</text>
+          </view>
+          <view class='info-item'>
+            <text>收货地址：</text>
+            <text>{{orderDetailInfo.province}}{{orderDetailInfo.city}}{{orderDetailInfo.area}}{{orderDetailInfo.address}}</text>
+          </view>
+          <view class='info-item'>
+            <text>联系电话：</text>
+            <text>{{orderDetailInfo.mobile}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <!-- 图标 -->
+    <view class='right'>></view>
+
+  </navigator>
+
+  <view class='order-item'>
+    <!-- title -->
+    <view class='title'>
+      <view>
+        <text>{{orderDetailInfo.who_name}}</text>
+      </view>
+      <!-- 订单状态 --> 
+      <view class='status' wx:if="{{orderDetailInfo.status === '1'}}">待支付</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '2' && orderDetailInfo.distribution_status === '0'}}">待发货</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '2' && orderDetailInfo.distribution_status === '1'}}">待收货</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '3'}}">已取消</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '4'}}">订单关闭</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '5'}}">已完成</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '6' }}">已退款</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '7' }}">部分退款</view>
+      <view class='status' wx:if="{{orderDetailInfo.status === '8' }}">申请退款中</view>
+    </view>
+
+    <!-- content -->
+    <block wx:for="{{orderDetailInfo.goods_info}}" wx:key="index" wx:for-item="goodsItem">
+      <view class='order-content'>
+        <image src='{{imgUrl+goodsItem.img}}'></image>
+        <view class='info'>
+          <view class='name'>{{goodsItem.goods_name}}</view>
+          <view class='goods-info'>
+            <text>￥{{goodsItem.goods_price}}</text>
+            <text>*{{goodsItem.goods_nums}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- orderInfo -->
+  <view class='order-info'>
+    <view>
+      <text>商品总价:</text>
+      <text>￥{{orderDetailInfo.real_amount}}</text>
+    </view>
+    <view>
+      <text>运费:</text>
+      <text>￥{{orderDetailInfo.real_freight}}</text>
+    </view>
+    <view>
+      <text>订单总价:</text>
+      <text style='color: #d9a62e'>￥{{orderDetailInfo.order_amount}}</text>
+    </view>
+  </view>
+
+  <view class='order-detail'>
+    <view>
+      <text>订单编号：</text>
+      <text>{{orderDetailInfo.order_no}}</text>
+    </view>
+    <view>
+      <text>创建时间：</text>
+      <text>{{orderDetailInfo.create_time}}</text>
+    </view>
+    <view wx:if="{{orderDetailInfo.status === '2' || orderDetailInfo.status === '5'}}">
+      <text>付款时间：</text>
+      <text>{{orderDetailInfo.pay_time}}</text>
+    </view>
+  </view>
+
+
+  <view class='pay' wx:if="{{isPay}}" bindtap='pay'>付款</view>
+</view>

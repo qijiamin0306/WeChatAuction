@@ -1,0 +1,33 @@
+<view>
+    <text>收货人</text><input bindinput='name' value='{{addressInfo.accept_name}}'></input>
+    <text>联系电话</text><input bindinput='mobileNumber' value='{{addressInfo.accept_mobile}}'></input>
+    <view class="section">
+      <view>
+        <text>收货地址</text>
+        <view class='select' bindtap='chooseProvince'>{{province+city+area}}</view>
+        <view class='province' wx:if='{{isProvince}}'>
+          <view wx:for='{{allProvince}}' wx:key='{{index}}' data-area_id='{{item.area_id}}' data-area_name='{{item.area_name}}' bindtap='chooseCity'>
+            {{item.area_name}}
+          </view>
+        </view>
+        <view class='city' wx:if='{{isCity}}'>
+          <view wx:for='{{allCity}}' wx:key='{{index}}' data-area_id='{{item.area_id}}' data-area_name='{{item.area_name}}' bindtap='chooseArea'>
+            {{item.area_name}}
+          </view>
+        </view>
+        <view class='area' wx:if='{{isArea}}'>
+          <view wx:for='{{allArea}}' wx:key='{{index}}' data-area_id='{{item.area_id}}' data-area_name='{{item.area_name}}' bindtap='makeAddress'>
+            {{item.area_name}}
+          </view>
+        </view>
+      </view>
+      <view>详细地址：</view><input bindinput='detailAddress' value='{{addressInfo.address}}'></input>
+    </view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox checked='{{is_default}}'/>设为默认
+      </label>
+    </checkbox-group>
+    <button bindtap='updateAddress'>保存</button>
+    <button bindtap='cancel'>取消</button>
+  </view>

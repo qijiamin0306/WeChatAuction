@@ -1,8 +1,5 @@
 {
 	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -11,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.5",
-	"appid": "wxb9cb3d3e2de928ea",
-	"projectname": "small-customization",
+	"libVersion": "1.9.1",
+	"appid": "wxb692c77a585ad5cf",
+	"projectname": "%E7%88%B1%E5%BE%AE%E8%97%8Ftest",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

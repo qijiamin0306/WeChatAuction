@@ -1,0 +1,12 @@
+<view>
+  <block wx:for="{{addressList}}" wx:key="index" >
+    <view class='address-list' bindtap='chooseAddress' data-id='{{item.id}}' data-accept_name='{{item.accept_name}}' data-accept_mobile='{{item.accept_mobile}}' data-province_text='{{item.province_text}}' data-city_text='{{item.city_text}}' data-area_text='{{item.area_text}}' data-address='{{item.address}}'>
+      <view>收货人：{{item.accept_name}}</view>
+      <view>联系电话:{{item.accept_mobile}}</view>
+      <view>收货地址:{{item.province_text+item.city_text+item.area_text+item.address}}</view>  
+      <text catchtap='edit' data-id='{{item.id}}' data-accept_name='{{item.accept_name}}' data-accept_mobile='{{item.accept_mobile}}' data-province_text='{{item.province_text}}' data-city_text='{{item.city_text}}' data-area_text='{{item.area_text}}' data-address='{{item.address}}' data-is_default='{{item.is_default}}'>编辑</text> 
+      <text catchtap='delete' id='{{item.id}}'>删除</text>
+    </view>  
+  </block>
+   <navigator class='add-address' url='../../pages/addAddress/index?addressListLength={{addressList.length}}'>新增</navigator> 
+</view>

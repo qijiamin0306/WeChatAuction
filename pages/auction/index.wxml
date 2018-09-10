@@ -1,0 +1,164 @@
+<!--index.wxml-->
+<view class='box'>
+  <view class='banner'>
+  <view class='show-box'>
+    <!-- 倒计时 -->
+    <view class='countdown' wx:if="{{isCountDown}}">
+      <text>{{instruction}}</text>
+      <text wx:if="{{!isOver}}">{{countDown}}</text>
+    </view>
+    <!-- <view class='countdown' wx:if="{{isPay}}">
+      <text>拍卖已结束</text>
+    </view> -->
+    <!-- banner -->
+    <swiper wx:if="{{!isVideo}}" autoplay interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{goodsInfo.img_list}}" wx:key="index" wx:for-item="item">
+        <swiper-item>
+          <image src="{{imgUrl+item}}" class="slide-image" mode='aspectFill'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!-- video -->
+    <video wx:if="{{isVideo}}" class='video' src="{{goodsInfo.content}}">
+
+    </video>
+
+     <view wx:if="{{isHasVideo}}" class='btn'>
+      <view class="video {{isVideo ? 'active' : ''}}" bindtap='video'>
+        <view class='san'></view>  
+        <view cla>视频</view>
+      </view>
+      <view class="{{!isVideo ? 'active' : ''}}" bindtap="images">图片</view>
+    </view>
+  </view>
+</view>
+
+<view class='content'>
+  <!-- 拍品信息 -->
+  <view class='info'>
+    <view class='name'>{{goodsInfo.goods_name}}</view>
+    <view class='flex-item'>当前价：
+      <text class='price'>￥{{goodsInfo.now_price}}</text>
+    </view>
+    <view class='flex-item'>
+      <view>起拍价：￥{{goodsInfo.star_price}}</view>
+      <view>加价幅度：￥{{goodsInfo.range_price}}</view>
+    </view>
+    <view class='flex-item'>
+      <view wx:if="{{goodsInfo.direct_price === '0.00'}}">一口价：无</view>
+      <view wx:else>一口价：￥{{goodsInfo.direct_price}}</view>
+      <view wx:if="{{goodsInfo.express_price == 0}}">运费：包邮</view>
+      <view wx:else>运费：￥{{goodsInfo.express_price}}</view>
+    </view>
+    <view class='flex-item' wx:if="{{goodsInfo.deposit === '0' || goodsInfo.deposit === '0.00'}}">保证金：无</view>
+    <view class='flex-item' wx:else>保证金：￥{{goodsInfo.deposit}}</view>
+    <!-- <view class='flex-item font'>
+      <view>围观：{{goodsInfo.onlook}}</view>
+      <view>提醒：{{goodsInfo.remind}}</view>
+    </view> -->
+  </view>
+
+  <!-- 拍卖记录 -->
+  <view class='record'>
+    <view class='title'>
+      <text style='font-weight: bold'>拍卖记录</text>
+      <text>{{goodsInfo.bid_number}}次</text>
+    </view>
+    <scroll-view scroll-x class="scroll-header">
+      <block wx:for="{{offerList}}" wx:key="index" wx:for-item="item">
+        <view id="green" class="record-item">
+          <view>
+            <image src='{{imgUrl1+item.head_img}}'></image>
+          </view>
+          <view>{{item.nick_name}}</view>
+          <view>￥{{item.price}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 拍品介绍 -->
+  <view class='desc'>
+    <view class='title'>拍品介绍</view>
+    <view style='padding-top: 10rpx'>
+      {{goodsInfo.desc_text}}
+    </view>
+  </view>
+
+  <!-- 弹出层 -- 出价操作 -->
+  <view class='model' hidden='{{isPrice}}' catchtap="hide">
+    <view class='model-box'>
+      <!-- 关闭按钮 -->
+      <view class='close' bindtap='hide'>×</view>
+
+      <!-- 当前价格 -->
+      <view class='now-price'>当前价格：￥{{goodsInfo.now_price}}</view>
+
+      <!-- 操作按钮 -->
+      <!-- 正常出价 -->
+      <view class='set'>
+        <text class='text'>出价</text>
+        <view class='num-box'>
+          <text catchtap='minusPrice1'>-</text>
+          <view class='price'>{{price1}}</view>
+          <text catchtap="addPrice1">+</text>
+        </view>
+        <button class='offer' data-id='1' catchtap="offer">提交</button>
+      </view>
+      <!-- 代理出价 -->
+      <view class='set'>
+        <text class='text'>代理出价</text>
+        <view class='num-box'>
+          <text catchtap='minusPrice2'>-</text>
+          <view class='price'>{{price2}}</view>
+          <text catchtap="addPrice2">+</text>
+        </view>
+        <button class='offer' catchtap='agentOffer'>提交</button>
+      </view>
+
+      <!-- 说明 -->
+      <view class='intr'>
+        <text>代理出价：代理出价是您对拍品设定的最高可接受价格。系统会自动为您按拍品加价幅度出价直到有人超过您的代理出价位置，多人设定按出价时间轮流出价</text>
+      </view>
+
+      <!-- 一口价 -->
+      <view class='set' wx:if="{{goodsInfo.direct_price !== '0.00'}}">
+        <text class='text'>一口价</text>
+        <view class='num-box fixed-box'>
+          <!-- <text bindtap='minusPrice2'>-</text> -->
+          <view class='price'>{{fixedPrice}}</view>
+          <!-- <text bindtap="addPrice2">+</text> -->
+        </view>
+        <button class='offer' data-id='1' catchtap='fixedOffer'>提交</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <!-- <view class='footer' wx:if="{{isPay}}">  
+    <button class='chujia' bindtap="goPay">付款</button>
+  </view>  -->
+
+  <!-- 显示出价或者提交保证金 -->
+  <!-- <button class='chujia' bindtap="payDeposit">提交保证金</button> -->
+ <view class='footer' wx:if="{{!isPay}}">
+   <view>
+    <view class='left-chujia'>
+      <navigator hover-class="none" class='order-center' url="../../pages/order/index">
+        <image src='../../images/order-list.png'></image>
+        <view>订单中心</view>
+      </navigator>
+      <text></text>
+      <button open-type="share" class='share'>
+        <image src='../../images/share.png'></image>
+        <view>分享</view>
+      </button>      
+    </view>
+    <view class='footer-chujia'>
+      <button open-type="getUserInfo" class='chujia' bindgetuserinfo="onGotUserInfo" bindtap="showOffer"  wx:if="{{!isDeposit}}">出价</button>
+      <button class='pay-deposit' bindtap="payDeposit" wx:else>提交保证金</button>
+    </view>
+   </view>
+  </view> 
+</view>
+</view>

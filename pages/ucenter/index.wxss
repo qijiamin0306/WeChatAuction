@@ -1,0 +1,95 @@
+/**index.wxss**/
+.flex-wrp{
+  display: flex;
+}
+.userInfo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  margin-top: 20rpx;
+  background: #353535;
+  border-radius: 20rpx;
+  align-items: center;
+  width: 710rpx;
+  height: 320rpx;
+  margin-bottom: 40rpx;
+  color: #fff;
+  font-size: 40rpx;
+}
+.bg {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 710rpx;
+  height: 320rpx;
+}
+.auth {
+  height: 60rpx;
+  background: transparent;
+  text-align: left;
+  padding: 0;
+  padding-left: 16rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+.info {
+  position: relative;
+  z-index: 4;
+  margin-left: 40rpx;
+}
+.info .name {
+  padding-left: 16rpx;
+}
+.mobile {
+  margin-top: 14rpx;
+  color: #c4a181;
+  font-size: 28rpx;
+}
+.bind-mobile {
+  display: block;
+  background: #c4a181;
+  border-radius: 26rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 28rpx;
+  padding: 0 16rpx;
+}
+.head-box {
+  padding-left: 52rpx;
+}
+.head-img {
+  position: relative;
+  z-index: 5;
+  width: 144rpx;
+  height: 144rpx;
+  border-radius: 50%;
+}
+image {
+  vertical-align: middle;
+}
+
+/* 功能 */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 670rpx;
+  height: 100rpx;
+  border-bottom: 1rpx solid #b2b2b2;
+}
+.item-icon1 {
+  width: 42rpx;
+  height: 44rpx;
+  margin-right: 36rpx;
+}
+.item-icon2 {
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 36rpx;
+}
+
+.right {
+  color: #b2b2b2;
+}

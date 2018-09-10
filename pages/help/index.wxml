@@ -1,0 +1,22 @@
+<!-- 绑定手机号 -->
+<view class='help'>
+  <view class='title'>1.拍卖基本流程</view>
+  
+  <view class='content'>
+    <view>选择场次 -> 点击进入场次，查看商品列表 -> 选中商品，查看信息，出价 -> 竞拍成功后，进入个人中心，查看订单 -> 完善个人信息 -> 支付订单，等待卖家发货 -> 确认收货</view>
+  </view>
+  <view class='title'>2.出价代理出价和一口价</view>
+  <view class='content'>
+    <view>出价：按照加价幅度提升价格；</view>
+    
+    <view>代理出价：选择心里价位，如出价被超过，将为您自动出价；</view>
+    <view>出价：按照加价幅度提升价格；</view>
+    <view>一口价：直接购买商品。</view>
+    <view>结拍前15分钟有人出价，则结拍时间会延时，直到15分钟内无人出价则结拍。</view>
+  </view>
+  <view class='title'>3.常见问题</view>
+  <view class='content'>
+    <view>a)支付额度</view>
+    <view>支付过程中如遇到商品价格比较高，超过微信或支付宝一次性支付额度，请联系客服：iweicang01</view>
+  </view>
+</view>

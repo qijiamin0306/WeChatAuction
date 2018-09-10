@@ -1,0 +1,17 @@
+
+.help {
+  padding: 0 32rpx;
+}
+.title {
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.content {
+  color: #1c1c1c;
+}
+.content view {
+  text-indent: 2em;
+  padding-bottom: 10rpx;
+}
